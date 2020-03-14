@@ -6,10 +6,10 @@ These are some python scripts that parse and extract things from Hotline Miami 2
 - [**How to use the scripts**](#How-to-use)
   - wad_extract.py
   - meta_extract.py
-- [**.wad Documentation**](#.wad-Files)
+- [**.wad Documentation**](#wad-Files)
   - general structure
   - how to parse
-- [**.meta Documentation**](#.meta-Files)
+- [**.meta Documentation**](#meta-Files)
   - general structure
   - how to parse
 
@@ -25,8 +25,6 @@ This script is for extracting assets from a .wad file. You can supply specific f
 
 TODO
 
-### Note: All integers are in little endian form
-
 ## .wad Files
 
 ### How .wad files are structured:
@@ -38,6 +36,8 @@ TODO
   - all the files contents. Not realistically parsable without the header data
 
 ### How .wad files are parsed:
+
+> Note: All integers are in little endian form
 
     - .wad file identifier -      16 byte byte array
     - number of files in wad (N) - 4 byte integer
@@ -65,6 +65,8 @@ TODO
   - list of images for every sprite
 
 ### How .meta files are parsed:
+
+> Note: All integers are in little endian form
 
     - .meta file identifier - 16 byte byte array
     - game (hm1 or hm2) -      4 byte integer
