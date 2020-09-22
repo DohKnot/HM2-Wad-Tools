@@ -1,33 +1,30 @@
-# HM2 Wad Tools
+# HM Wad Tools
 These are some python scripts that parse and extract things from Hotline Miami 2: Wrong Number's wad files.
 > Written for python 3.7.4 and greater
 
 ## Overview:
-- [**How to use the scripts**](#How-to-use)
+- [**How to use the script**](#How-to-use)
   - wad_extract.py
-  - meta_extract.py
-- [**.wad Documentation**](#wad-Files)
+- [** HM2 .wad Documentation**](#HM2)
   - general structure
   - how to parse
 - [**.meta Documentation**](#meta-Files)
   - general structure
   - how to parse
-
+- [** HM1 .wad Documentation**](#HM1)
+  - general structure
+  - how to parse
 ## How to use
 
 You can download the all files with the `clone or download` button
 
 ### wad_extract.py
 
-This script is for extracting assets from a .wad file. You can supply specific files to extract or just do a general grab of all assets. You can also pass in a .patchwad file since they have the same format!
+This script is for extracting assets from a .wad file. You can supply specific files to extract or just do a general grab of all assets. You can also pass in a `.patchwad` file since they have the same format!
 
-### meta_extract.py
+# HM2
 
-TODO
-
-## .wad Files
-
-### How .wad files are structured:
+## How .wad files are structured:
 
 - **header data**:
   - list of files and their locations within the file
@@ -35,7 +32,7 @@ TODO
 - **asset contents**:
   - all the files contents. Not realistically parsable without the header data
 
-### How .wad files are parsed:
+## How .wad files are parsed:
 
 > Note: All integers are in little endian form
 
@@ -81,3 +78,19 @@ TODO
         - x -      4 byte integer
         - y -      4 byte integer
         - uv -     4 4 byte floats (16 bytes total) (unused)
+
+
+# HM1
+
+## How .wad files are structured:
+
+- **header data**:
+  - list of files and their locations within the file
+- **asset contents**:
+  - all the files contents. Not realistically parsable without the header data
+
+## How .wad files are parsed:
+
+> Note: All integers are in little endian form
+    
+<table><thead><tr><th>Attribute</th><th>Type</th></tr></thead><tbody><tr><td>.wad file identifier</td><td>16 byte array</td></tr><tr><td>content offset</td><td>4 byte integer</td></tr><tr><td>number of files in wad (N)</td><td>4 byte integer</td></tr><tr><td><p>repeat N times</p><table><tbody><tr><td>file name len (L)</td><td>4 byte integer</td></tr><tr><td>file name</td><td>L byte(s) string</td></tr><tr><td>file size</td><td>8 byte integer</td></tr><tr><td>file offset</td><td>8 byte integer</td></tr></tbody></table></td></tr></tbody></table>
